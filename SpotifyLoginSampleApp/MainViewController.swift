@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class MainViewController: UIViewController{
     @IBOutlet weak var welcomLabel: UILabel!
+    @IBOutlet weak var resetPasswordButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         //pop제스쳐를 막는것
@@ -25,6 +26,14 @@ class MainViewController: UIViewController{
         환영합니다.
         \(email)님
         """
+        
+        let isEmailSignIn = Auth.auth().currentUser?.providerData[0].providerID == "password"
+        self.resetPasswordButton.isHidden = !isEmailSignIn
+    }
+    
+    @IBAction func resetPasswordButtonTapped(_ sender: UIButton) {
+        let email = Auth.auth().currentUser?.email ?? ""
+        Auth.auth().sendPasswordReset(withEmail: email)
     }
     
     @IBAction func logoutButtonTapped(_ sender: Any) {

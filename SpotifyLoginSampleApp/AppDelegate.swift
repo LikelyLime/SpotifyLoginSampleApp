@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -19,7 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         return true
     }
+    // 다음 함수 추가
+    // 로그인 및 사용자 등록에만은 필요 없는 코드
+    // 인증이 끝나고 앱이 받는 url을 처리
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+      var handled: Bool
 
+      handled = GIDSignIn.sharedInstance.handle(url)
+      if handled {
+          // Handle other custom URL types.
+        return true
+      } 
+
+
+      // If not handled by this app, return false.
+      return false
+    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

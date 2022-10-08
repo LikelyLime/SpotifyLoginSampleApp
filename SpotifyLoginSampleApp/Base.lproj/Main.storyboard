@@ -240,7 +240,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbZ-eN-fCk">
-                                <rect key="frame" x="151.5" y="488" width="111" height="44"/>
+                                <rect key="frame" x="151.5" y="540" width="111" height="44"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그아웃">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
@@ -250,17 +250,31 @@
                                     <action selector="logoutButtonTapped:" destination="YMH-5t-650" eventType="touchUpInside" id="UxO-bx-8mB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kv-S3-cKH">
+                                <rect key="frame" x="156" y="488" width="102" height="32"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="비밀번호변경">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetPasswordButtonTapped:" destination="YMH-5t-650" eventType="touchUpInside" id="aea-lR-52A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KPW-oH-Sgk"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="u1h-cA-mfQ" firstAttribute="centerY" secondItem="KPW-oH-Sgk" secondAttribute="centerY" id="6KR-jz-yxv"/>
-                            <constraint firstItem="sbZ-eN-fCk" firstAttribute="top" secondItem="u1h-cA-mfQ" secondAttribute="bottom" constant="20" id="6o8-i3-ubJ"/>
+                            <constraint firstItem="sbZ-eN-fCk" firstAttribute="top" secondItem="9kv-S3-cKH" secondAttribute="bottom" constant="20" id="afr-eC-C6W"/>
+                            <constraint firstItem="9kv-S3-cKH" firstAttribute="centerX" secondItem="KPW-oH-Sgk" secondAttribute="centerX" id="fio-jk-lCN"/>
+                            <constraint firstItem="9kv-S3-cKH" firstAttribute="top" secondItem="u1h-cA-mfQ" secondAttribute="bottom" constant="20" id="h9l-U8-ESk"/>
                             <constraint firstItem="u1h-cA-mfQ" firstAttribute="centerX" secondItem="KPW-oH-Sgk" secondAttribute="centerX" id="oDR-Ld-jl3"/>
                             <constraint firstItem="sbZ-eN-fCk" firstAttribute="centerX" secondItem="KPW-oH-Sgk" secondAttribute="centerX" id="tSx-xx-Cy9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="resetPasswordButton" destination="9kv-S3-cKH" id="zHK-vI-5Id"/>
                         <outlet property="welcomLabel" destination="u1h-cA-mfQ" id="okI-za-cxc"/>
                     </connections>
                 </viewController>
